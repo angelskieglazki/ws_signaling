@@ -3,6 +3,7 @@
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Локальные настройки (путь к Qt, компилятор и т.д.)
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/local.cmake")

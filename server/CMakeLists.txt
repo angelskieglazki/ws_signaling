@@ -1,5 +1,7 @@
 # CMakeLists.txt для signaling-server
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Ищем nlohmann/json (header-only)
 find_package(nlohmann_json QUIET)
 if(NOT nlohmann_json_FOUND)
