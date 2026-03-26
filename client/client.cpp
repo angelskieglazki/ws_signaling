@@ -477,10 +477,16 @@ private:
           item->setBackground(QBrush(QColor(200, 255, 200)));
         } else if (status == "speaking") {
           item->setBackground(QBrush(QColor(255, 255, 150)));
-          // Сбросить через 200ms
-          QTimer::singleShot(200, [this, peerId, item]() {
-            if (item)
-              item->setBackground(QBrush(QColor(200, 255, 200)));
+          // Сбросить через 200ms - не захватываем указатель на item
+          QTimer::singleShot(200, [this, peerId]() {
+            // Ищем item заново по peerId
+            for (int j = 0; j < participantsList_->count(); ++j) {
+              QListWidgetItem *currentItem = participantsList_->item(j);
+              if (currentItem && currentItem->text().startsWith(peerId)) {
+                currentItem->setBackground(QBrush(QColor(200, 255, 200)));
+                break;
+              }
+            }
           });
         } else {
           item->setBackground(QBrush(Qt::white));
