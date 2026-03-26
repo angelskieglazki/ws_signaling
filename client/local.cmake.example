@@ -1,0 +1,9 @@
+# Локальные настройки сборки
+# Скопируй этот файл в local.cmake и отредактируй под свою систему
+
+# Путь к установленному Qt6
+set(CMAKE_PREFIX_PATH "/home/max/Qt/6.3.1/gcc_64")
+
+# Можно добавить и другие локальные настройки, например:
+# set(CMAKE_CXX_COMPILER /usr/bin/g++-12)
+# set(CMAKE_BUILD_TYPE Debug)

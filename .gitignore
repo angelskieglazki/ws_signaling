@@ -1,3 +1,6 @@
+# Local cmake configs
+**/local.cmake
+
 # Prerequisites
 *.d
 
