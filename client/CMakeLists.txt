@@ -11,7 +11,7 @@ else()
     message(WARNING "local.cmake not found. Copy local.cmake.example to local.cmake and set your Qt path.")
 endif()
 
-find_package(Qt6 COMPONENTS Core Gui Widgets WebSockets REQUIRED)
+find_package(Qt6 COMPONENTS Core Gui Widgets WebSockets Multimedia REQUIRED)
 
 # Ищем libdatachannel (установлен из исходников в /usr/local)
 find_library(LIBDATACHANNEL_LIBRARY
@@ -33,6 +33,10 @@ message(STATUS "Found libdatachannel includes: ${LIBDATACHANNEL_INCLUDE_DIR}")
 
 add_executable(qt-client
     client.cpp
+    audiocapture.cpp
+    audiocapture.h
+    webrtcmanager.cpp
+    webrtcmanager.h
 )
 
 target_include_directories(qt-client PRIVATE
@@ -44,6 +48,7 @@ target_link_libraries(qt-client
     Qt6::Gui
     Qt6::Widgets
     Qt6::WebSockets
+    Qt6::Multimedia
     ${LIBDATACHANNEL_LIBRARY}
 )
 
