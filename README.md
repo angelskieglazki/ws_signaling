@@ -30,3 +30,9 @@ mkdir build && cd build
 cmake ..
 make
 ```
+
+### Docker
+```bash
+docker build -t signaling-server .
+docker run -d -p 9002:9002 signaling-server
+```

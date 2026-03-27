@@ -16,6 +16,11 @@ include_directories(
 
 find_package(OpenSSL REQUIRED)
 
+# Опция для сборки клиента (по умолчанию ON)
+option(BUILD_CLIENT "Build Qt client" ON)
+
 # Подключаем подпроекты
 add_subdirectory(server)
-add_subdirectory(client)
+if(BUILD_CLIENT)
+    add_subdirectory(client)
+endif()
