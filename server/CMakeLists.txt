@@ -15,7 +15,22 @@ if(NOT nlohmann_json_FOUND)
     endif()
 endif()
 
-add_executable(signaling-server server.cpp)
+# Исходные файлы сервера
+set(SERVER_SOURCES
+    main.cpp
+    SignalingServer.cpp
+    MessageHandler.cpp
+    ClientManager.cpp
+    RoomManager.cpp
+    Client.cpp
+    Room.cpp
+)
+
+add_executable(signaling-server ${SERVER_SOURCES})
+
+target_include_directories(signaling-server PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 target_link_libraries(signaling-server
     OpenSSL::SSL
